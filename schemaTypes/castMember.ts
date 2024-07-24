@@ -11,10 +11,16 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'showActor',
+      title: 'Show Actor',
+      type: 'boolean',
+    }),
+    defineField({
       name: 'person',
       title: 'Actor',
       type: 'reference',
       to: [{type: 'person'}],
+      hidden: ({parent}) => !parent?.showActor,
     }),
     defineField({
       name: 'externalId',
